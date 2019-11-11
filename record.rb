@@ -8,10 +8,8 @@ end
 dir = Dir["List/*"].sort_by{ |m| m.scan(/\d+/)[0].to_i }.last.gsub("List/", "").to_i
 f = File.open("List/#{dir+=1}.txt", "a")
 Ritm.on_request do |req|
-	puts"[================================]"
 	puts req.request_uri
 	puts req
-	puts"[================================]"
 	f << "[================================]\n"
 	f << req.request_uri.to_s + "\n"
 	f << req.to_s + "\n"
